@@ -1,5 +1,6 @@
 <?php
 require_once "DBManager.php";
+
 class Product
 {
     private $id;
@@ -48,6 +49,15 @@ class Product
         $pdo = DBManager::Connect("ecommerce");
         $stmt = $pdo->query("SELECT * FROM products");
         return $stmt->fetchAll(PDO::FETCH_CLASS, 'Product');
+    }
+
+    public static function getProduct($id)
+    {
+        $pdo = DBManager::Connect("ecommerce");
+        $stmt = $pdo->prepare("SELECT * FROM products WHERE id = :id LIMIT 1");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetchObject("Product");
     }
 
 }

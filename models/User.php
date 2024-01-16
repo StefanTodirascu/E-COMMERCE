@@ -1,10 +1,12 @@
 <?php
 require_once "DBManager.php";
+
 class User
 {
     private $id;
     private $email;
     private $password;
+
     /**
      * @return mixed
      */
@@ -52,16 +54,15 @@ class User
 
     public static function Create($params)
     {
-        $email= $params["email"];
-        $password= $params["password"];
+        $email = $params["email"];
+        $password = $params["password"];
         $pdo = DBManager::Connect("ecommerce");
         $stm = $pdo->prepare("INSERT INTO users (email, password) values (:email, :password)");
-        $stm ->bindParam(':email', $params["email"]);
-        $stm ->bindParam(':password', $params["password"]);
-        if($stm -> execute()){
+        $stm->bindParam(':email', $params["email"]);
+        $stm->bindParam(':password', $params["password"]);
+        if ($stm->execute()) {
             return self::getLastInsert();
-        }
-        else{
+        } else {
             return false;
         }
 
@@ -77,13 +78,20 @@ class User
         return $stm->fetchObject("User");
     }
 
-    public static  function getLastInsert()
+    public static function getUser($id)
     {
         $pdo = DBManager::Connect("ecommerce");
-        $stm = $pdo -> prepare("SELECT * FROM users ORDER BY id DESC LIMIT 1");
+        $stm = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+        $stm->bindParam(":id", $id);
         $stm->execute();
         return $stm->fetchObject("User");
+    }
 
-
+    public static function getLastInsert()
+    {
+        $pdo = DBManager::Connect("ecommerce");
+        $stm = $pdo->prepare("SELECT * FROM users ORDER BY id DESC LIMIT 1");
+        $stm->execute();
+        return $stm->fetchObject("User");
     }
 }

@@ -31,7 +31,7 @@
     "PHP Script.signup.php.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/39327/Desktop/virtual box/E-COMMERCE",
+    "last_opened_file_path": "C:/Users/39327/Desktop/ECOMMERCE-main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -50,6 +50,10 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\39327\Desktop\E-COMMERCE\actions" />
       <recent name="C:\Users\39327\Desktop\E-COMMERCE\views" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\39327\Desktop\E-COMMERCE\actions" />
+      <recent name="C:\Users\39327\Desktop\E-COMMERCE\views\products" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -83,6 +87,7 @@
       <workItem from="1705254060477" duration="2301000" />
       <workItem from="1705261621327" duration="2428000" />
       <workItem from="1705265526314" duration="13751000" />
+      <workItem from="1705332798144" duration="22247000" />
     </task>
     <servers />
   </component>

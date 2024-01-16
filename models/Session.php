@@ -12,25 +12,30 @@ class Session
     {
         return $this->id;
     }
+
     public function getIp()
     {
         return $this->ip;
     }
+
     public function setIp($ip)
     {
         $this->ip = $ip;
     }
+
     public function getData()
     {
         return $this->data;
     }
+
     public function setData($data)
     {
         $this->data = $data;
     }
 
-    public static function Create($params){
-        $pdo=DBManager::connect("ecommerce" );
+    public static function Create($params)
+    {
+        $pdo = DBManager::connect("ecommerce");
         $stm = $pdo->prepare("insert into sessions(ip, data_login, user_id) values (:ip, :data_login, :user_id)");
         $stm->bindParam(':ip', $params["ip"]);
         $stm->bindParam(':data_login', $params["data"]);
