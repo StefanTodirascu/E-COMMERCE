@@ -13,7 +13,7 @@ $isLoggedIn = isset($_SESSION['current_user']);
     <?php if ($isLoggedIn):
         $user = $_SESSION['current_user'];
         $user->getId() ?>
-        <a class="btn btn-primary" href="products.php">Carrello</a>
+        <a class="btn btn-primary" href="../cart.php">Carrello</a>
         <div class="navbar-collapse justify-content-end me-5" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

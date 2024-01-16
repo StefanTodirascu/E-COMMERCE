@@ -26,7 +26,7 @@
                         <input type="password" id="confirm-password" name="confirm-password" required
                                class="form-control">
                     </div>
-                    <input type="submit" value="Login" class="btn btn-success align-items-center">
+                    <input type="submit" value="Sign up" class="btn btn-success align-items-center">
                 </form>
             </div>
         </div>

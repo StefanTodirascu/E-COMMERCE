@@ -31,7 +31,7 @@
     "PHP Script.signup.php.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/39327/Desktop/ECOMMERCE-main",
+    "last_opened_file_path": "C:/Users/39327/Desktop/git-ecommerce",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -88,6 +88,7 @@
       <workItem from="1705261621327" duration="2428000" />
       <workItem from="1705265526314" duration="13751000" />
       <workItem from="1705332798144" duration="22247000" />
+      <workItem from="1705417709247" duration="14786000" />
     </task>
     <servers />
   </component>

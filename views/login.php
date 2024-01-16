@@ -18,11 +18,13 @@
                 <form action="../actions/login.php" method="post">
                     <div class="mb-3 text-start">
                         <label for="Email" class="form-label">Email address</label>
-                        <input type="email" id="email" name="email" placeholder="name@example.com" class="form-control">
+                        <input type="email" id="email" name="email" required placeholder="name@example.com"
+                               class="form-control">
                         <label for="Password" class="form-label">Password</label>
                         <input type="password" id="password" name="password" required class="form-control">
                     </div>
                     <input type="submit" value="Login" class="btn btn-success align-items-center">
+                    <a href="sign_up.php" class="btn btn-success align-items-center">Sign up</a>
                 </form>
             </div>
         </div>

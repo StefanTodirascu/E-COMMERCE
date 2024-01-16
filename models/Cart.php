@@ -63,11 +63,22 @@ class Cart
         $idCard = $card->getId();
 
         $pdo = DBManager::Connect("ecommerce");
-        $stm = $pdo->prepare("SELECT * FROM carts WHERE user_id = :idUser LIMIT 1");
+        //$stm = $pdo->prepare("SELECT * FROM carts WHERE user_id = :idUser LIMIT 1");
 
         $stmt = $pdo->prepare("SELECT product_id, quantita FROM ecommerce.cart_products WHERE cart_id = :cart_id");
         $stmt->bindParam(':cart_id', $idCard);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public static function resetCart($idUser)
+    {
+        $card = self::Find($idUser);
+        $idCard = $card->getId();
+        $pdo = DBManager::Connect("ecommerce");
+        $stmt = $pdo->prepare("DELETE FROM ecommerce.cart_products WHERE cart_id = :cart_id");
+        $stmt->bindParam(':cart_id', $idCard);
+        $stmt->execute();
+    }
+
 }
