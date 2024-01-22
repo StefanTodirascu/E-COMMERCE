@@ -65,7 +65,9 @@ class Cart
         $pdo = DBManager::Connect("ecommerce");
         //$stm = $pdo->prepare("SELECT * FROM carts WHERE user_id = :idUser LIMIT 1");
 
-        $stmt = $pdo->prepare("SELECT product_id, quantita FROM ecommerce.cart_products WHERE cart_id = :cart_id");
+        $stmt = $pdo->prepare("SELECT * FROM (SELECT product_id, SUM(quantita) AS quantita FROM ecommerce.cart_products WHERE cart_id = :cart_id GROUP BY product_id) as sum_products");
+
+
         $stmt->bindParam(':cart_id', $idCard);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -78,6 +80,17 @@ class Cart
         $pdo = DBManager::Connect("ecommerce");
         $stmt = $pdo->prepare("DELETE FROM ecommerce.cart_products WHERE cart_id = :cart_id");
         $stmt->bindParam(':cart_id', $idCard);
+        $stmt->execute();
+    }
+
+    public static function deleteProduct($idUser, $idProduct)
+    {
+        $card = self::Find($idUser);
+        $idCard = $card->getId();
+        $pdo = DBManager::Connect("ecommerce");
+        $stmt = $pdo->prepare("DELETE FROM ecommerce.cart_products WHERE cart_id = :cart_id AND product_id = :product_id");
+        $stmt->bindParam(':cart_id', $idCard);
+        $stmt->bindParam(':product_id', $idUser);
         $stmt->execute();
     }
 
