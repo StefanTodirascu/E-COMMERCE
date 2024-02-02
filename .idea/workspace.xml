@@ -27,11 +27,13 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.index.php.executor&quot;: &quot;Run&quot;,
+    &quot;PHP Script.cart.php.executor&quot;: &quot;Run&quot;,
     &quot;PHP Script.sign_up.php.executor&quot;: &quot;Run&quot;,
     &quot;PHP Script.signup.php.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/39327/Desktop/E-COMMERCE&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/39327/Desktop/ajax&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -52,6 +54,7 @@
       <recent name="C:\Users\39327\Desktop\E-COMMERCE\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\39327\Desktop\E-COMMERCE\partials" />
       <recent name="C:\Users\39327\Desktop\E-COMMERCE\actions" />
       <recent name="C:\Users\39327\Desktop\E-COMMERCE\views\products" />
     </key>
@@ -95,6 +98,15 @@
       <workItem from="1705752936541" duration="2388000" />
       <workItem from="1705852311465" duration="3000000" />
       <workItem from="1705954251732" duration="223000" />
+      <workItem from="1706040455227" duration="542000" />
+      <workItem from="1706041021768" duration="759000" />
+      <workItem from="1706093523390" duration="4420000" />
+      <workItem from="1706175718172" duration="3250000" />
+      <workItem from="1706470698635" duration="107000" />
+      <workItem from="1706556830238" duration="8117000" />
+      <workItem from="1706697916571" duration="1857000" />
+      <workItem from="1706702762625" duration="6222000" />
+      <workItem from="1706895420968" duration="9781000" />
     </task>
     <servers />
   </component>

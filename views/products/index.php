@@ -2,7 +2,7 @@
 require_once '../../models/Session.php';
 require_once '../../models/Product.php';
 require_once '../../models/User.php';
-require_once 'navbar.php';
+require_once '../../partials/navbar.php';
 
 $products = Product::getProducts();
 ?>

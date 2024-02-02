@@ -2,11 +2,15 @@
 require_once "../models/User.php";
 require_once "../models/Cart.php";
 require_once "../models/Product.php";
+require_once "../models/Cart_Products.php";
 
 session_start();
 $user = $_SESSION['current_user'];
-$idUser = $user->getId();
-$products = Cart::getProducts($idUser);
+if (!$user)
+    header('Location:login.php');
+$userId = $user->getId();
+$cart = Cart::Find($userId);
+$products = Cart_Products::getProducts($cart->getId());
 $totale = 0;
 ?>
 
@@ -20,6 +24,17 @@ $totale = 0;
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+    <style>
+        .custom-button {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .custom-button i {
+            color: white;
+        }
+    </style>
 </head>
 
 <body class="d-flex align-items-center justify-content-center bg-dark text-light">
@@ -38,21 +53,36 @@ $totale = 0;
         <?php
         foreach ($products
 
-        as $productC) {
-        $product = Product::getProduct($productC['product_id']) ?>
+        as $productInCart) {
+        $productId = $productInCart->getProductId();
+        $product = Product::getProduct($productId) ?>
         <tr>
-            <td>#<?php echo $productC['product_id'] ?></td>
+            <td><?php echo $productInCart->getProductId() ?></td>
             <td><?php echo $product->getNome() ?></td>
-            <td><?php echo $productC['quantita'] ?></td>
+            <td><?php echo $productInCart->getQuantita() ?></td>
             <td><?php echo number_format($product->getPrezzo(), 2) ?>€</td>
-            <?php $prezzo = $product->getPrezzo() * (float)$productC['quantita'] ?>
+            <?php $prezzo = $product->getPrezzo() * (float)$productInCart->getQuantita() ?>
             <td><?php echo number_format($prezzo, 2) ?>€</td>
             <?php $totale = $totale + $prezzo ?>
+
+
             <td>
-                <i class="fas fa-trash-alt"></i>
+                <form action="../../actions/select_product.php" method="post">
+                    <input type="hidden" name="product_id" value="<?php echo $product->getId(); ?>">
+                    <input type="hidden" name="product_q" value="<?php echo $productInCart->getQuantita(); ?>">
+                    <button type="submit" class="custom-button">
+                        <i class="fas fa-edit"></i>
+                    </button>
+
+                </form>
             </td>
             <td>
-                <i class="fas fa-edit"></i>
+                <form action="../../actions/delete_from_cart.php" method="post">
+                    <input type="hidden" name="product_id" value="<?php echo $product->getId(); ?>">
+                    <button type="submit" class="custom-button">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
             </td>
             <?php } ?>
         </tr>

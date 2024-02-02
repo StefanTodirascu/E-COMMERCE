@@ -27,11 +27,11 @@ class Cart
         }
     }
 
-    public static function Find($idUser)
+    public static function Find($userId)
     {
         $pdo = DBManager::Connect("ecommerce");
         $stm = $pdo->prepare("SELECT * FROM carts WHERE user_id = :idUser LIMIT 1");
-        $stm->bindParam(":idUser", $idUser);
+        $stm->bindParam(":idUser", $userId);
         $stm->execute();
         return $stm->fetchObject("Cart");
     }
@@ -57,7 +57,7 @@ class Cart
             return false;
     }
 
-    public static function getProducts($idUser)
+    /*public static function getProducts($idUser)
     {
         $card = self::Find($idUser);
         $idCard = $card->getId();
@@ -71,7 +71,7 @@ class Cart
         $stmt->bindParam(':cart_id', $idCard);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+    }*/
 
     public static function resetCart($idUser)
     {
@@ -83,7 +83,7 @@ class Cart
         $stmt->execute();
     }
 
-    public static function deleteProduct($idUser, $idProduct)
+    public static function deleteProductFromCart($idUser, $idProduct)
     {
         $card = self::Find($idUser);
         $idCard = $card->getId();
@@ -93,5 +93,11 @@ class Cart
         $stmt->bindParam(':product_id', $idUser);
         $stmt->execute();
     }
+
+    public function updateCart()
+    {
+
+    }
+
 
 }

@@ -1,10 +1,15 @@
 <?php
 require_once "../../models/Product.php";
 $id = $_GET['id'];
+if (isset($_GET['quantita'])) {
+    $quantita = $_GET['quantita'];
+}
+
 $product = Product::getProduct($id);
 $nome = $product->getNome();
 $marca = $product->getMarca();
 $prezzo = $product->getPrezzo();
+
 ?>
 
 <!DOCTYPE html>
@@ -24,16 +29,28 @@ $prezzo = $product->getPrezzo();
         <h6 class="card-subtitle mb-2 text-muted"><?php echo $marca; ?></h6>
         <p class="card-text fs-5">Prezzo: <?php echo $prezzo; ?> €</p>
         <div class="d-flex justify-content-center">
-            <form action="../../actions/add_to_cart.php" method="post">
-                <label for="quantita" class="fs-6">Quantità:</label>
-                <input type="number" id="quantita" name="quantita" min="1" value="1" required>
-                <br><br>
+            <?php if (isset($_GET['quantita'])): ?>
+                <form action="../../actions/update_cart.php" method="post">
+                    <label for="quantita" class="fs-6">Quantità:</label>
+                    <input type="number" id="quantita" name="quantita" min="1" value=<?php echo $quantita; ?> required>
+                    <br><br>
 
+                    <button type="submit" class="btn btn-success fs-5 me-2">Aggiorna</button>
+                    <input type="hidden" name="idProduct" value="<?php echo $id; ?>">
+                    <a href="http://localhost:63342/E-COMMERCE/views/cart.php" class="btn btn-danger fs-5">Annulla</a>
+                </form>
 
-                <button type="submit" class="btn btn-success fs-5 me-2">Aggiungi al Carrello</button>
-                <input type="hidden" name="idProduct" value="<?php echo $id; ?>">
-                <a href="index.php" class="btn btn-danger fs-5">Annulla</a>
-            </form>
+            <?php else : ?>
+                <form action="../../actions/add_to_cart.php" method="post">
+                    <label for="quantita" class="fs-6">Quantità:</label>
+                    <input type="number" id="quantita" name="quantita" min="1" value="1" required>
+                    <br><br>
+
+                    <button type="submit" class="btn btn-success fs-5 me-2">Aggiungi al Carrello</button>
+                    <input type="hidden" name="idProduct" value="<?php echo $id; ?>">
+                    <a href="index.php" class="btn btn-danger fs-5">Annulla</a>
+                </form>
+            <?php endif ?>
         </div>
     </div>
 </div>
