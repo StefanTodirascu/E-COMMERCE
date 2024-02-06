@@ -60,4 +60,34 @@ class Product
         return $stmt->fetchObject("Product");
     }
 
+    public static function addProduct($params)
+    {
+        $pdo = DBManager::Connect("ecommerce");
+        $stm = $pdo->prepare("INSERT INTO products (nome, marca, prezzo) VALUES (:nome, :marca, :prezzo)");
+        $stm->bindParam(":nome", $params['nome']);
+        $stm->bindParam(":marca", $params['marca']);
+        $stm->bindParam(":prezzo", $params['prezzo']);
+        return $stm->execute();
+    }
+
+    public function update($params)
+    {
+        $pdo = DBManager::Connect("ecommerce");
+        $stmt = $pdo->prepare("UPDATE ecommerce.products SET nome = :nome, marca = :marca, prezzo = :prezzo  WHERE id = :id");
+        $stmt->bindParam(':nome', $params['nome']);
+        $stmt->bindParam(':marca', $params['marca']);
+        $stmt->bindParam(':prezzo', $params['prezzo']);
+        $stmt->bindParam(':id', $this->id);
+        return $stmt->execute();
+    }
+
+    public function delete()
+    {
+        $pdo = DBManager::Connect("ecommerce");
+        $stmt = $pdo->prepare("DELETE FROM ecommerce.products WHERE id = :id");
+        $stmt->bindParam(':id', $this->id);
+        return $stmt->execute();
+    }
+
+
 }

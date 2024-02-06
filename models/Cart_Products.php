@@ -40,10 +40,7 @@ class Cart_Products
         $stm->bindParam(":cart_id", $params['cart_id']);
         $stm->bindParam(":product_id", $params['product_id']);
         $stm->bindParam(":quantita", $params['quantita']);
-        if ($stm->execute())
-            return true;
-        else
-            return false;
+        return $stm->execute();
     }
 
     public static function getProducts($cartId)

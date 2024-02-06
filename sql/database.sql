@@ -20,7 +20,9 @@ create table if not exists ecommerce.sessions
     id         int not null auto_increment primary key,
     ip         varchar(15),
     data_login datetime,
-    user_id    int
+    user_id    int,
+    isActice bool,
+    data_logout datetime
 );
 
 create table if not exists ecommerce.carts

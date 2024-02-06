@@ -2,8 +2,8 @@ insert into ecommerce.products(nome, prezzo, marca)
 values ("Tosaerba", 289.99, "Oleomac"),
        ("Vaso", 9.99, "Villeroy e Boch"),
        ("Personal computer", 1799.99, "MSI"),
-       ("Bibbia", 15.00 "San paolo"),
-       ("Modellino ferrari", 129.99, "Ferrari");
+       ("Bibbia", 15.00, "San paolo"),
+       ("Modellino ferrari", 129.99, "Ferrari"),
        ("Iphone 15 Pro Max", 1239.00, "Apple");
 
 insert into ecommerce.roles(nome, descrizione)

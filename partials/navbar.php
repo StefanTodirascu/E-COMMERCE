@@ -1,5 +1,4 @@
 <?php
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 
@@ -12,14 +11,22 @@ $isLoggedIn = isset($_SESSION['current_user']);
 
     <?php if ($isLoggedIn):
         $user = $_SESSION['current_user'];
-        $user->getId() ?>
+        $admin = $user->isAdmin() ?>
+
+        <?php if (!$admin) { ?>
         <a class="btn btn-primary" href="../cart.php">Carrello</a>
+    <?php } ?>
+
 
         <div class="navbar-collapse justify-content-end me-5" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <span class="navbar-text"
-                          style="margin-right: 15px;">Benvenuto <?php echo $user->getEmail() ?>
+                          style="margin-right: 15px;">Benvenuto <?php
+                        if ($admin)
+                            echo "ADMIN";
+                        else
+                            echo $user->getEmail() ?>
                     </span>
                 </li>
                 <li class="nav-item">

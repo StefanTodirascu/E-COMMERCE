@@ -83,21 +83,7 @@ class Cart
         $stmt->execute();
     }
 
-    public static function deleteProductFromCart($idUser, $idProduct)
-    {
-        $card = self::Find($idUser);
-        $idCard = $card->getId();
-        $pdo = DBManager::Connect("ecommerce");
-        $stmt = $pdo->prepare("DELETE FROM ecommerce.cart_products WHERE cart_id = :cart_id AND product_id = :product_id");
-        $stmt->bindParam(':cart_id', $idCard);
-        $stmt->bindParam(':product_id', $idUser);
-        $stmt->execute();
-    }
 
-    public function updateCart()
-    {
-
-    }
 
 
 }

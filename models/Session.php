@@ -43,8 +43,17 @@ class Session
         if ($stm->execute()) {
             $stm = $pdo->prepare("select * from sessions order by id desc limit 1");
             $stm->execute();
-            $session = $stm->fetchObject('Session');
+            return $stm->fetchObject('Session');
         }
+    }
+
+    public function delete()
+    {
+        $pdo = DBManager::Connect("ecommerce");
+        $stmt = $pdo->prepare("UPDATE ecommerce.sessions SET isActive = false, data_logout = :data_logout WHERE id = :id");
+        $data = date('Y-m-d H-i-s');
+        $stmt->bindParam(":data_logout", $data);
+        $stmt->bindParam(":id", $this->id);
     }
 
     public static function Find($id)
@@ -52,10 +61,7 @@ class Session
         $pdo = DBManager::Connect("ecommerce");
         $stmt = $pdo->prepare("select * from sessions where id = :id");
         $stmt->bindParam(":id", $id);
-        if ($stmt->execute()) {
-            return $stmt->fetchObject("Session");
-        } else {
-            throw new PDOException("sessione non trovata");
-        }
+        $stmt->execute();
+        return $stmt->fetchObject("Session");
     }
 }

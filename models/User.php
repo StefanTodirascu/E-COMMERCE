@@ -5,26 +5,22 @@ class User
     private $id;
     private $email;
     private $password;
+    private $role_id;
 
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-
-
-    /**
-     * @return mixed
-     */
     public function getEmail()
     {
         return $this->email;
+    }
+
+    public function getRoleId()
+    {
+        return $this->role_id;
+    }
+
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -92,5 +88,13 @@ class User
         $stm = $pdo->prepare("SELECT * FROM users ORDER BY id DESC LIMIT 1");
         $stm->execute();
         return $stm->fetchObject("User");
+    }
+
+    public function isAdmin()
+    {
+        if($this->role_id == 2)
+            return true;
+        else
+            return false;
     }
 }

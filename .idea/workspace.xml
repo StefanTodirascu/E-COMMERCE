@@ -28,6 +28,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;JavaScript Debug.index.php.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.product.php.executor&quot;: &quot;Run&quot;,
     &quot;PHP Script.cart.php.executor&quot;: &quot;Run&quot;,
     &quot;PHP Script.sign_up.php.executor&quot;: &quot;Run&quot;,
     &quot;PHP Script.signup.php.executor&quot;: &quot;Run&quot;,
@@ -107,6 +108,9 @@
       <workItem from="1706697916571" duration="1857000" />
       <workItem from="1706702762625" duration="6222000" />
       <workItem from="1706895420968" duration="9781000" />
+      <workItem from="1706906541713" duration="3574000" />
+      <workItem from="1707070650847" duration="13260000" />
+      <workItem from="1707184303972" duration="4075000" />
     </task>
     <servers />
   </component>
