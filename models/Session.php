@@ -45,6 +45,7 @@ class Session
             $stm->execute();
             return $stm->fetchObject('Session');
         }
+        return false;
     }
 
     public function delete()
@@ -54,6 +55,7 @@ class Session
         $data = date('Y-m-d H-i-s');
         $stmt->bindParam(":data_logout", $data);
         $stmt->bindParam(":id", $this->id);
+        $stmt->execute();
     }
 
     public static function Find($id)

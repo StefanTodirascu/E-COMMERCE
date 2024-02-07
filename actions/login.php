@@ -18,6 +18,7 @@ if ($current_user) {
     session_start();
     $_SESSION['current_user'] = $current_user;
     $params = array("ip" => $_SERVER["REMOTE_ADDR"], "user_id" => $current_user->getId(), "data" => date('Y-m-d H-i-s'));
+    $_SESSION['current_session'] = Session::Create($params);
     header('Location: ../views/products/index.php');
     exit;
 } else {
