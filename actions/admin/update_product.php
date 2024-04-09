@@ -1,5 +1,6 @@
 <?php
 require_once "../../models/Product.php";
+require_once "../../models/User.php";
 session_start();
 if (!isset($_SESSION['current_user'])) {
     header("Location: ../../views/login.php");

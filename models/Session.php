@@ -5,7 +5,10 @@ class Session
 {
     private $id;
     private $ip;
-    private $data;
+    private $data_login;
+    private $user_id;
+    private $isActive;
+    private $data_logout;
 
 
     public function getId()
@@ -25,12 +28,12 @@ class Session
 
     public function getData()
     {
-        return $this->data;
+        return $this->data_login;
     }
 
     public function setData($data)
     {
-        $this->data = $data;
+        $this->data_login = $data;
     }
 
     public static function Create($params)

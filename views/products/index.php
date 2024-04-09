@@ -13,12 +13,14 @@ if (isset($_SESSION['current_user'])) {
 }
 ?>
 
+
 <html>
 <head>
     <style>
-        .fa-size{
+        .fa-size {
             font-size: 16em;
         }
+
         .custom-button {
             background-color: transparent;
             border: none;
@@ -77,20 +79,20 @@ if (isset($_SESSION['current_user'])) {
                 </div>
             </div>
         <?php } ?>
-        <?php if ($admin){?>
-        <div class="col-md-4 mb-4">
-            <div class="card ">
-                <div class="card-body d-flex align-items-center justify-content-center p-0"> <!-- p-0 rimuove il padding -->
-                    <form action="../../actions/select_product.php" method="post">
-                        <input type="hidden" name="product_id" value="<?php echo 0 ?>">
-                        <button type="submit" class="custom-button w-100 h-100">
-                            <i class="fas fa-plus fa-size"></i>
-                        </button>
-                    </form>
+        <?php if ($admin) { ?>
+            <div class="col-md-4 mb-4">
+                <div class="card ">
+                    <div class="card-body d-flex align-items-center justify-content-center p-0">
+                        <form action="../../actions/select_product.php" method="post">
+                            <input type="hidden" name="product_id" value="<?php echo 0 ?>">
+                            <button type="submit" class="custom-button w-100 h-100">
+                                <i class="fas fa-plus fa-size"></i>
+                            </button>
+                        </form>
 
+                    </div>
                 </div>
             </div>
-        </div>
         <?php } ?>
     </div>
 </div>

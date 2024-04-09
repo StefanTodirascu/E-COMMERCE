@@ -21,7 +21,7 @@ create table if not exists ecommerce.sessions
     ip         varchar(15),
     data_login datetime,
     user_id    int,
-    isActice bool,
+    isActive bool,
     data_logout datetime
 );
 
@@ -62,3 +62,7 @@ alter table ecommerce.sessions
     
 ALTER TABLE ecommerce.users
 MODIFY COLUMN role_id INT DEFAULT 1;
+
+ALTER TABLE ecommerce.sessions
+MODIFY COLUMN isActive BOOL DEFAULT true;
+
